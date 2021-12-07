@@ -10,70 +10,49 @@ Original file is located at
 import sympy as sp
 import math
 
-##cau 1a
+# cau 1a
 x = sp.symbols('x')
 fx = abs(x * x - x - 7)
 lm = sp.limit(fx, x, 3)
 print("1a - the limit of f(x) when x tends to 3: " + str(lm))
 
-import sympy as sp
-import math
-
-##cau 1b
+# cau 1b
 x = sp.symbols('x')
 fx = abs(x - 1) / (x * x - 1)
 lm = sp.limit(fx, x, 1)
 print("1b - the limit of f(x) when x tends to 1: " + str(lm))
 
-import sympy as sp
-import math
-
-##cau 1c
+# cau 1c
 x = sp.symbols('x')
-fx = math.e**(1/x)
+fx = math.e ** (1 / x)
 lm = sp.limit(fx, x, 1)
 print("1c - the limit of f(x) when x tends to 1: " + str(lm))
 
-import sympy as sp
-import math
-
-##cau 1d
+# cau 1d
 x = sp.symbols('x')
-fx = (x**4 -16) / (x - 2)
+fx = (x ** 4 - 16) / (x - 2)
 lm = sp.limit(fx, x, 2)
 print("1d - the limit of f(x) when x tends to 2: " + str(lm))
 
-import sympy as sp
-import math
-
-##cau 1e
+# cau 1e
 x = sp.symbols('x')
-fx = (x**3 - x**2 - 5 * x - 3) / (x + 1)**2
+fx = (x ** 3 - x ** 2 - 5 * x - 3) / (x + 1) ** 2
 lm = sp.limit(fx, x, -1)
 print("1e - the limit of f(x) when x tends to -1: " + str(lm))
 
-import sympy as sp
-import math
-
-##cau 1f
+# cau 1f
 x = sp.symbols('x')
-fx = (x**2 - 9) / (abs(x**2 + 7) - 4)
+fx = (x ** 2 - 9) / (abs(x ** 2 + 7) - 4)
 lm = sp.limit(fx, x, 3)
 print("1f - the limit of f(x) when x tends to 3: " + str(lm))
 
-import sympy as sp
-import math
-
-##cau 1g
+# cau 1g
 x = sp.symbols('x')
 fx = abs(x) / sp.sin(x)
 lm = sp.limit(fx, x, 1)
 print("1g - the limit of f(x) when x tends to 3: " + str(lm))
 
-import sympy as sp
-import math
-
-##cau 1h
+# cau 1h
 x = sp.symbols('x')
 fx = (1 - sp.cos(x)) / x * sp.sin(x)
 lm = sp.limit(fx, x, 0)

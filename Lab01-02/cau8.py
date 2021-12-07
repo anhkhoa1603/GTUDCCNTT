@@ -9,7 +9,6 @@ Original file is located at
 
 import sympy as sp
 import matplotlib.pyplot as plt
-import math
 import numpy as np
 
 x = np.arange(-10, 10, dtype=np.float)
