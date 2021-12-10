@@ -7,37 +7,37 @@ Original file is located at
     https://colab.research.google.com/drive/16AzmOxsj2qAHn1DwP9dHxxE2FW6o3vy2
 """
 
-import numpy as np
-import sympy as sp
+import numpy as np #khai báo thư viện
+import sympy as sp #khai báo thư viện
 A = 459
 B = 1
 
-def f(x): return (x**2 - A*x - B*x + A*B) / (x - A)
+def f(x): return (x**2 - A*x - B*x + A*B) / (x - A) #viết hàm trã về giá trị của fx khi thế x vào
 
-x = sp.symbols('x')
-fx = (x**2 - A*x - B*x + A*B) / (x - A)
+x = sp.symbols('x') #tạo biến x là 1 hàm biểu tượng
+fx = (x**2 - A*x - B*x + A*B) / (x - A) #khai báo phương trình fx
 
-lm_fx = sp.limit(fx, x, 0)
-lm_fx1 = sp.limit(fx, x, B)
-lm_fx2 = sp.limit(fx, x, A + B + 1)
+lm_fx = sp.limit(fx, x, 0) #tính lim của fx khi x dần về 0
+lm_fx1 = sp.limit(fx, x, B) #tính lim của fx khi x dần về B
+lm_fx2 = sp.limit(fx, x, A + B + 1) #tính lim của fx khi x dần về A+B+1
 
-print("Cau a:")
-print("Gioi han cua ham so khi x dan tien ve 0 la", lm_fx)
-print("Gioi han cua ham so khi x dan tien ve B la", lm_fx1)
-print("Gioi han cua ham so khi x dan tien ve A + B + 1 la", lm_fx2)
-print("\n")
+print("Cau a:") #in "Cau a"
+print("Gioi han cua ham so khi x dan tien ve 0 la", lm_fx) #in ra giá trị của lim x->0
+print("Gioi han cua ham so khi x dan tien ve B la", lm_fx1) #in ra giá trị của lim x->B
+print("Gioi han cua ham so khi x dan tien ve A + B + 1 la", lm_fx2) #in ra giá trị của lim x->A+B+1
+print("\n") #xuống dòng
 
-print("Cau b:")
-lm_fA = sp.limit(fx, x, A)
-print("So sanh lim_f(A) va f(A):", lm_fA, A)
-if lm_fA == A:
-  print("Ham so lien tuc tai x=", A)
+print("Cau b:") #in"Cau b"
+lm_fA = sp.limit(fx, x, A) #tính lim của fx khi x dần về A
+print("So sanh lim_f(A) va f(A):", lm_fA, A) #so sánh lim fx và fx
+if lm_fA == A: #xét điều kiện nếu lim của f(A) = a
+  print("Ham so lien tuc tai x=", A) #in ra màn hình nếu điều kiện đúng
 else:
-  print("Ham so khong lien tuc tai x =", A)
-print("\n")
+  print("Ham so khong lien tuc tai x =", A) #in ra màn hình nếu điều kiện sai
+print("\n") #xuống dòng
 
-print("Cau c:")
-for n in np.arange(A - 10, A + 11, 1):
-  lm_f = sp.limit(fx, x, n)
-  if lm_f == f(n):
-    print("Ham so lien tục tai x=", n)
+print("Cau c:") #in "Cau c"
+for n in np.arange(A - 10, A + 11, 1): #chạy vòng lặp với n chạy từ A-10 tới A+10 với bước nhảy là 1
+  lm_f = sp.limit(fx, x, n) #tính lim của fx khi x dần tiến về n
+  if lm_f == f(n): #Xét điều kiện nếu lim của fx bằng với f(n) thì thực hiện
+    print("Ham so lien tục tai x =", n) #in kết quả
