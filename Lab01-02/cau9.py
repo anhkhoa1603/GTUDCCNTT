@@ -10,6 +10,6 @@ def f2(x):
 x = np.arange(-2, 2.1, 0.2)
 plt.plot(x, f1(x), color = 'm', label="f1(x)")
 plt.plot(x, f2(x), color = 'r', label="f2(x)")
-plt.legend()
+plt.legend(shadow=True)
 plt.grid()
 plt.show()

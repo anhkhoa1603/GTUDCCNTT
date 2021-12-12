@@ -12,10 +12,14 @@ import sympy as sp #khai báo thư viện
 A = 459
 B = 1
 
-def f(x): return (x**2 - A*x - B*x + A*B) / (x - A) #viết hàm trã về giá trị của fx khi thế x vào
+def f(a): #gọi hàm f(x)
+  if a == A:
+    return A #trả về giá trị A nếu x = A
+  else:
+    return (x**2 - A*x - B*x + A*B) / (x - A) #viết hàm trã về giá trị của fx khi thế x vào
 
 x = sp.symbols('x') #tạo biến x là 1 hàm biểu tượng
-fx = (x**2 - A*x - B*x + A*B) / (x - A) #khai báo phương trình fx
+fx = (x**2 - A*x - B*x + A*B) / (x - A) #khai báo phương trình fx bằng biểu thức bên
 
 lm_fx = sp.limit(fx, x, 0) #tính lim của fx khi x dần về 0
 lm_fx1 = sp.limit(fx, x, B) #tính lim của fx khi x dần về B
@@ -28,9 +32,10 @@ print("Gioi han cua ham so khi x dan tien ve A + B + 1 la", lm_fx2) #in ra giá 
 print("\n") #xuống dòng
 
 print("Cau b:") #in"Cau b"
+fx = f(A) #khai báo phương trình fx = A
 lm_fA = sp.limit(fx, x, A) #tính lim của fx khi x dần về A
 print("So sanh lim_f(A) va f(A):", lm_fA, A) #so sánh lim fx và fx
-if lm_fA == A: #xét điều kiện nếu lim của f(A) = a
+if lm_fA == fx: #xét điều kiện nếu lim của f(A) = a
   print("Ham so lien tuc tai x=", A) #in ra màn hình nếu điều kiện đúng
 else:
   print("Ham so khong lien tuc tai x =", A) #in ra màn hình nếu điều kiện sai
@@ -38,6 +43,18 @@ print("\n") #xuống dòng
 
 print("Cau c:") #in "Cau c"
 for n in np.arange(A - 10, A + 11, 1): #chạy vòng lặp với n chạy từ A-10 tới A+10 với bước nhảy là 1
-  lm_f = sp.limit(fx, x, n) #tính lim của fx khi x dần tiến về n
-  if lm_f == f(n): #Xét điều kiện nếu lim của fx bằng với f(n) thì thực hiện
-    print("Ham so lien tục tai x =", n) #in kết quả
+  if n == A: #nếu n = A thì thực hiện
+    fx = f(A) #khai báo phương trình fx = A
+    lm_f = sp.limit(fx, x, A) #tính lim của fx khi x dần về A
+    if lm_f == fx: #nếu lim của fx khi x dần về A bằng với fx
+      print("c. Ham so lien tuc tai",A) #in ra hàm số liên tục tại A
+    else:
+      print("c. Ham so khong lien tuc tai",A) #in ra hàm số không liên tục tại A
+  else:
+    fx = f(n) #gán hàm f(n) vào fx
+    lm_f = sp.limit(fx, x, n) #tính lim của fx khi dần về n
+    y = fx.subs(x, n) # Thay biến x thành n vào trong fx rồi gán giá trị trả về thành y
+    if lm_f == y: #nếu lim của fx khi x dần về A bằng với y
+      print("c. Ham so lien tuc tai",n) #in ra hàm số liên tục tại n
+    else:
+      print("c. Ham so khong lien tuc tai",n) #in ra hàm số không liên tục tại n
